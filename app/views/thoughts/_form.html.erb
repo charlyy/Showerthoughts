@@ -10,8 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
+ <%= form_for :thought do |f| %>
+ 
+  <p>
+    <%= f.label :thought %><br>
+    <%= f.text_area :thought_content %>
+  </p>
+ 
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
+<% end %>
 <% end %>

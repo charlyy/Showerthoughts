@@ -1,24 +1,19 @@
 <h1>Listing thoughts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+ 
     <% @thoughts.each do |thought| %>
-      <tr>
-        <td><%= link_to 'Show', thought %></td>
-        <td><%= link_to 'Edit', edit_thought_path(thought) %></td>
-        <td><%= link_to 'Destroy', thought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div style="border:black 2px dashed; height: 100px; width: 200px;">
+      <%= link_to thought.thought_content, thought %>
+
+      <p style="font-size: 12px;"><%= link_to 'Edit', edit_thought_path(thought) %>
+        <%= link_to 'Destroy', thought, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
     <% end %>
-  </tbody>
-</table>
+
+
+
 
 <br>
 
