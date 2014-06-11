@@ -1,5 +1,6 @@
  <div style="border:2px solid black"><%= @thought.thought_content %> <%= link_to 'Edit', edit_thought_path(@thought) %> </div>
 
-
-<%= link_to 'Back', thoughts_path %>
+<div class="button"> 
+	<%= link_to 'Back', thoughts_path %>
+</div>
 <%= link_to 'Destroy', @thought, method: :delete, data: { confirm: 'Are you sure?' } %>
