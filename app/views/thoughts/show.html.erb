@@ -1,5 +1,5 @@
  <div style="border:2px solid black"><%= @thought.thought_content %> <%= link_to 'Edit', edit_thought_path(@thought) %> </div>
 
 
-<%= link_to 'Back', thoughts_path %>
-<%= link_to 'Destroy', @thought, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Back', thoughts_path, class: "button tiny rounded radius"  %>
+<%= button_to 'Destroy', @thought, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny rounded radius" %>
