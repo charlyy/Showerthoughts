@@ -17,52 +17,50 @@ thoughtApp.factory('Thought', ['$resource', function($resource) {
 
 thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', function($scope, Thought) {
     $scope.thoughts= [];
-
     $scope.newThought = new Thought();
-
     Thought.query(function(thoughts) {
       $scope.thoughts = thoughts;
    });
 
-    $scope.saveThought = function () {
+    $scope.saveThought = function() {
       $scope.newThought.$save(function(thought) {
         $scope.thoughts.push(thought)
         $scope.newThought = new Thought();
       });
     }
 
-    $scope.deleteThought = function (thought) {
-      thought.$delete(function() {
-        position = $scope.thoughts.indexOf(thought);
-        $scope.thoughts.splice(position, 1);
-      }, function(errors) {
-        $scope.errors = errors.data
-      });
-    }
+    // $scope.deleteThought = function (thought) {
+    //   thought.$delete(function() {
+    //     position = $scope.thoughts.indexOf(thought);
+    //     $scope.thoughts.splice(position, 1);
+    //   }, function(errors) {
+    //     $scope.errors = errors.data
+    //   });
+    // }
 
-    $scope.showThought = function(thought) {
-      thought.details = true;
-      thought.editing = false;
-    }
+    // $scope.showThought = function(thought) {
+    //   thought.details = true;
+    //   thought.editing = false;
+    // }
 
-    $scope.hideThought = function(thought) {
-      thought.details = false;
-    }
+    // $scope.hideThought = function(thought) {
+    //   thought.details = false;
+    // }
 
-    $scope.editThought = function(thought) {
-      thought.editing = true;
-      thought.details = false;
-    }
+    // $scope.editThought = function(thought) {
+    //   thought.editing = true;
+    //   thought.details = false;
+    // }
 
-    $scope.updateThought = function(thought) {
-      thought.$update(function() {
-        thought.editing = false;
-      }, function(errors) {
-        $scope.errors = errors.data
-      });
-    }
+    // $scope.updateThought = function(thought) {
+    //   thought.$update(function() {
+    //     thought.editing = false;
+    //   }, function(errors) {
+    //     $scope.errors = errors.data
+    //   });
+    // }
 
-    $scope.clearErrors = function() {
-      $scope.errors = null;
-    }
+    // $scope.clearErrors = function() {
+    //   $scope.errors = null;
+    // }
 }])

@@ -1,15 +1,18 @@
 class ThoughtsController < ApplicationController
   before_action :set_thought, only: [:show, :edit, :update, :destroy]
 
+  respond_to :json, :html
   # GET /thoughts
   # GET /thoughts.json
   def index
     @thoughts = Thought.all
+    respond_with @thoughts
   end
 
   # GET /thoughts/1
   # GET /thoughts/1.json
   def show
+    respond_with @thoughts
   end
 
   # GET /thoughts/new
@@ -26,11 +29,14 @@ class ThoughtsController < ApplicationController
   def create
     @thought = Thought.new(thought_params)
 
-    respond_to do |format|
+    
       if @thought.save
+        respond_to do |format|
         format.html { redirect_to @thought, notice: 'Thought was successfully created.' }
         format.json { render action: 'show', status: :created, location: @thought }
+        end
       else
+        respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @thought.errors, status: :unprocessable_entity }
       end
@@ -40,11 +46,14 @@ class ThoughtsController < ApplicationController
   # PATCH/PUT /thoughts/1
   # PATCH/PUT /thoughts/1.json
   def update
-    respond_to do |format|
+    
       if @thought.update(thought_params)
+        respond_to do |format|
         format.html { redirect_to @thought, notice: 'Thought was successfully updated.' }
         format.json { head :no_content }
+        end
       else
+        respond_to do |format|
         format.html { render action: 'edit' }
         format.json { render json: @thought.errors, status: :unprocessable_entity }
       end
