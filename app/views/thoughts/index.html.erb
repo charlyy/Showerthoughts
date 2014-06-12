@@ -18,3 +18,71 @@
 <br>
 
 <%= link_to 'New Thought', new_thought_path %>
+
+
+
+<div ng-app="thought-app" class="container">
+  <h1>Yogurts</h1>
+
+  <div ng-controller="ThoughtCtrl">
+    <div ng-show="errors" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" ng-click="clearErrors();" aria-hidden="true">&times;</button>
+      <ul>
+        <li ng-repeat="(attribute, error) in errors">
+          {{attribute}} {{error.join(", ")}}
+        </li>
+      </ul>
+
+    </div>
+     <div class="form-group">
+
+        <input ng-model="searchYogurt" type="text" class="form-control">
+
+      </div>
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr ng-repeat="yogurt in yogurts | filter:searchYogurt" >
+         <td>
+
+            <div ng-show="yogurt.details">
+              <dl>
+                 <dt>Quantity:</dt>
+                 <dd>{{yogurt.quantity}}</dd>
+                 <dt>Flavor:</dt>
+                 <dd>{{yogurt.flavor}}</dd>
+                 <dt>Topping:</dt>
+                 <dd>{{yogurt.topping}}</dd>
+
+                 <dt>Discount Coupons</dt>
+                 <dd>
+                  <ul>
+                    <li ng-repeat="coupon in yogurt.discount_coupons">
+                      Amount: ${{coupon.formatted_amount}}
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </td>
+          <td><span ng-hide="yogurt.details"><a ng-click="showYogurt(yogurt);" class="btn btn-info">show</a></span>
+          <span ng-show="yogurt.details"><a ng-click="hideYogurt(yogurt);" class="btn btn-info">hide</a></span>
+          </td>
+  
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>New Yogurt:</h3>
+    <form ng-submit="saveYogurt();" class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input ng-model="newYogurt.quantity" name="quantity" class="form-control">
+      <label for="flavor">Flavor:</label>
+      <input ng-model="newYogurt.flavor" name="flavor" class="form-control">
+      <label for="topping">Topping:</label>
+      <input ng-model="newYogurt.topping" name="topping" class="form-control">
+      <input type="submit" value="Add New Yogurt!" class="btn btn-primary">
+    </form>
+
+  </div>
+</div>
