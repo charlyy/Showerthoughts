@@ -1,5 +1,5 @@
 <div ng-app="thought-app" class="container">
-   <div class="thoughts_header mask info"> 
+    <div class="thoughts_header mask info"> 
       <h1>Thoughts</h1>
     </div>
   <div ng-controller="ThoughtCtrl">
@@ -7,21 +7,21 @@
   
 
     <div class="thoughts_container">  
-      <div class="form-group">
-      <input ng-model="searchThought" type="text" class="form-control">
-    </div>
-        <div ng-repeat="t in thoughts | filter:searchThought">
-          <div class="thoughts_content">*{{t.thought_content}}</div>
-              <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
-        </div>
-        <div>
-          <form ng-submit="saveThought();" class="form-group">
-          
-            <input ng-model="newThought.thought_content" name="thought_content" class="form-control">
-            <br />
-            <input type="submit" value="Add New Thought!" class="button small">
-          </form>
-        </div>
+        <div class="form-group">
+        <input ng-model="searchThought" type="text" class="form-control">
+      </div>
+      <div ng-repeat="t in thoughts | filter:searchThought">
+            <div class="thoughts_content">*{{t.thought_content}}<a ng-click="deleteThought(t);" class="button tiny radius round">X</a></div>
+                
+      </div>
+      <div>
+        <form ng-submit="saveThought();" class="form-group">
+        
+          <input ng-model="newThought.thought_content" name="thought_content" class="form-control">
+          <br />
+          <input type="submit" value="Add New Thought!" class="button small">
+        </form>
+      </div>
     </div>
        
   </div>
