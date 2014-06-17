@@ -13,6 +13,13 @@
           <div class="thoughts_content">*{{t.thought_content}}</div>
               <a ng-click="deleteThought(t);" class="button [tiny small large]">X</a>
         </div>
+        <div class="add_thought_container">
+          <form ng-submit="saveThought();" class="form-group">
+            Add Thought <br />
+            <input ng-model="newThought.thought_content" name="thought_content" class="form-control">
+            <input type="submit" value="Add New Thought!" class="button">
+          </form>
+        </div>
     </div>
   </div>
 </div>
