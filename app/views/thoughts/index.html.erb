@@ -4,22 +4,25 @@
     </div>
   <div ng-controller="ThoughtCtrl">
      
-    <div class="form-group">
-        <input ng-model="searchThought" type="text" class="form-control">
-    </div>
+  
 
     <div class="thoughts_container">  
+      <div class="form-group">
+      <input ng-model="searchThought" type="text" class="form-control">
+    </div>
         <div ng-repeat="t in thoughts | filter:searchThought">
           <div class="thoughts_content">*{{t.thought_content}}</div>
-              <a ng-click="deleteThought(t);" class="button [tiny small large]">X</a>
+              <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
         </div>
-        <div class="add_thought_container">
+        <div>
           <form ng-submit="saveThought();" class="form-group">
-            Add Thought <br />
+          
             <input ng-model="newThought.thought_content" name="thought_content" class="form-control">
-            <input type="submit" value="Add New Thought!" class="button">
+            <br />
+            <input type="submit" value="Add New Thought!" class="button small">
           </form>
         </div>
     </div>
+       
   </div>
 </div>

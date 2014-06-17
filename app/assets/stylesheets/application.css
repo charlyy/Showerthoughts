@@ -35,9 +35,10 @@
 }
 
 .form-group {
-	width: 200px;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 20px;
+
 }
 
 
@@ -45,12 +46,14 @@
 	background-color:rgba(89,89,89,0.63); 
 	width: 800px; 
 	margin: 0 auto;
-    color: white;
-    height: 500px;
-    overflow: scroll;
+  color: white;
+  height: 500px;
+  overflow: scroll;
+  float:right;
+  margin-right:20px;
 }
 .thoughts_content {
-	float: left;
+	border:2px solid black;
 	height: 200px;
 	width: 200px;
 }
