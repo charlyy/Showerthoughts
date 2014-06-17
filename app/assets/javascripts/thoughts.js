@@ -29,14 +29,14 @@ thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', function($scope, Thou
       });
     }
 
-    // $scope.deleteThought = function (thought) {
-    //   thought.$delete(function() {
-    //     position = $scope.thoughts.indexOf(thought);
-    //     $scope.thoughts.splice(position, 1);
-    //   }, function(errors) {
-    //     $scope.errors = errors.data
-    //   });
-    // }
+    $scope.deleteThought = function (thought) {
+      thought.$delete(function() {
+        position = $scope.thoughts.indexOf(thought);
+        $scope.thoughts.splice(position, 1);
+      }, function(errors) {
+        $scope.errors = errors.data
+      });
+    }
 
     // $scope.showThought = function(thought) {
     //   thought.details = true;
