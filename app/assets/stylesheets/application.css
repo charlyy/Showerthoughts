@@ -13,3 +13,50 @@
 
  *= require_tree .
  */
+
+ .thoughts_header {
+ 	text-align: center;
+ 	background-color: rgba(9,9,9,0.8);
+	width: 240px;
+	margin: 0 auto;
+	border-radius: 10px;
+	padding: 5px 20px;
+}
+
+.thoughts_header:hover {
+	background-color: rgba(9,9,9,0.6);
+	width: 250px;
+	border-radius: 20px;
+	transition: transform 4.1s ease-in;
+}
+
+.thoughts_header h1 {
+	color: white;
+}
+
+.form-group {
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+
+.thoughts_container {
+	background-color:rgba(89,89,89,0.63); 
+	width: 800px; 
+	margin: 0 auto;
+    color: white;
+    height: 500px;
+    overflow: scroll;
+}
+.thoughts_content {
+	float: left;
+	height: 200px;
+	width: 200px;
+}
+
+.add_thought_container {
+	height: 400px;
+	width: 500px;
+	border: 1px solid black;
+}
