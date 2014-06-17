@@ -1,24 +1,18 @@
 <div ng-app="thought-app" class="container">
-  <h1>Thoughts</h1>
+   <div class="thoughts_header mask info"> 
+      <h1>Thoughts</h1>
+    </div>
   <div ng-controller="ThoughtCtrl">
      
     <div class="form-group">
         <input ng-model="searchThought" type="text" class="form-control">
     </div>
 
-    <div ng-repeat="t in thoughts | filter:searchThought">
-          <div style="background-color:rgba(89,89,89,0.63); width: 600px; margin: 0 auto;
-          color: white;"> 
-
-             <p  style="font-size: 2em;" ng-bind="t.thought_content"> </p>
-              <a ng-click="deleteThought(t);" class="btn btn-info">X</a>
-          </div>
+    <div class="thoughts_container">  
+        <div ng-repeat="t in thoughts | filter:searchThought">
+          <div class="thoughts_content">*{{t.thought_content}}</div>
+              <a ng-click="deleteThought(t);" class="button [tiny small large]">X</a>
+        </div>
     </div>
-    
-    <h3>Add New Thought</h3>
-    <form ng-submit="saveThought();" class="form-group">
-      <input ng-model="newThought.thought_content" name="thought" class="form-control"><br /><br />
-      <input type="submit" value="Add New Thought!" class="button">
-    </form>
   </div>
 </div>
