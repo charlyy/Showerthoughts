@@ -24,7 +24,9 @@ thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', function($scope, Thou
 
     $scope.saveThought = function() {
       $scope.newThought.$save(function(thought) {
-        $scope.thoughts.push(thought)
+        console.log("bleepbloopblap");
+        $scope.thoughts.push(thought);
+        console.log("thought was saved");
         $scope.newThought = new Thought();
       });
     }
