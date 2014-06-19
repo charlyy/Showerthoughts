@@ -41,7 +41,9 @@
 
 }
 
-
+.thoughts_container div{
+  float: left;
+}
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
   color: white;
@@ -67,6 +69,7 @@
 
 .reveal-modal{
   min-height: 300px;
+
 }
 
 .ng-modal {
@@ -152,3 +155,5 @@
   filter: alpha(opacity=50);
   opacity: .5;
 }
+
+
