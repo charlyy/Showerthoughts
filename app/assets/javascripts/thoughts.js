@@ -1,4 +1,4 @@
-var thoughtApp = angular.module('thought-app', ['ngResource']).config(
+var thoughtApp = angular.module('thought-app', ['ngResource','mm.foundation']).config(
     ['$httpProvider', function($httpProvider) {
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
     var defaults = $httpProvider.defaults.headers;
@@ -15,22 +15,16 @@ thoughtApp.factory('Thought', ['$resource', function($resource) {
      {update: { method: 'PATCH'}});
 }]);
 
-thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', function($scope, Thought) {
-    $scope.thoughts= [];
-    $scope.newThought = new Thought();
+thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', '$modal', '$log', '$rootScope',
+    function($scope, Thought,  $modal, $log, $rootScope ) {
+
+    $rootScope.thoughts= [];
+    $rootScope.newThought = new Thought();
     Thought.query(function(thoughts) {
-      $scope.thoughts = thoughts;
+      $rootScope.thoughts = thoughts;
    });
-
-    $scope.saveThought = function() {
-      $scope.newThought.$save(function(thought) {
-        console.log("bleepbloopblap");
-        $scope.thoughts.push(thought);
-        console.log("thought was saved");
-        $scope.newThought = new Thought();
-      });
-    }
-
+ 
+  
     $scope.deleteThought = function (thought) {
       thought.$delete(function() {
         position = $scope.thoughts.indexOf(thought);
@@ -40,29 +34,54 @@ thoughtApp.controller('ThoughtCtrl', ['$scope', 'Thought', function($scope, Thou
       });
     }
 
-    // $scope.showThought = function(thought) {
-    //   thought.details = true;
-    //   thought.editing = false;
-    // }
 
-    // $scope.hideThought = function(thought) {
-    //   thought.details = false;
-    // }
+      // $scope.items = ['item1', 'item2', 'item3'];
 
-    // $scope.editThought = function(thought) {
-    //   thought.editing = true;
-    //   thought.details = false;
-    // }
+      $scope.open = function () {
 
-    // $scope.updateThought = function(thought) {
-    //   thought.$update(function() {
-    //     thought.editing = false;
-    //   }, function(errors) {
-    //     $scope.errors = errors.data
-    //   });
-    // }
+        var modalInstance = $modal.open({
+          templateUrl: 'myModalContent.html',
+          controller: 'ThoughtInstanceCtrl',
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
 
-    // $scope.clearErrors = function() {
-    //   $scope.errors = null;
-    // }
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
+      };
+
 }])
+
+thoughtApp.controller('ThoughtInstanceCtrl', ['$scope', 'Thought', '$modalInstance','$rootScope', 
+    function($scope, Thought,  $modalInstance, $rootScope ) {
+
+    $scope.newThought = new Thought();
+        Thought.query(function(thoughts) {
+          $scope.thoughts = thoughts;
+       });
+ 
+      $scope.saveThought = function() {
+          $scope.newThought.$save(function(thought) {
+            console.log("bleepbloopblap");
+            $rootScope.thoughts.push(thought);
+            console.log("thought was saved");
+            $scope.newThought = new Thought();
+            $scope.cancel();
+          });
+        }
+
+      $scope.ok = function () {
+        $modalInstance.close($scope.selected.item);
+      };
+
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+
+}]);

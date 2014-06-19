@@ -42,10 +42,7 @@
 
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
-	width: 800px; 
-	margin: 0 auto;
   color: white;
-  height: 500px;
   overflow: scroll;
   float:right;
   margin-right:20px;
@@ -54,6 +51,8 @@
 	border:2px solid black;
 	height: 200px;
 	width: 200px;
+  margin: 2px;
+  display: inline-block;
 }
 
 .add_thought_container {
@@ -62,8 +61,86 @@
 	border: 1px solid black;
 }
 
-.search_header {
-	text-align: center;
-	font-size: 1.2em;
-	color: white;
+.reveal-modal{
+  min-height: 300px;
+}
+
+.ng-modal {
+  transition: 0.2s ease-in-out opacity;
+}
+
+.ng-modal .reveal-modal {
+  display: block;
+  visibility: visible;
+}
+
+.ng-modal .reveal-modal-bg {
+  display: block;
+}
+
+.ng-modal.ng-hide-add,
+.ng-modal.ng-hide-remove{
+  display: block !important;
+}
+
+.ng-modal.ng-hide{
+  opacity: 0;
+}
+
+.reveal-modal{
+  transition: 0.2s ease-in-out all;
+  transition-delay: 0.2s;
+  -webkit-transform: scale(1);
+  opacity: 1;
+}
+
+.reveal-modal.ng-hide-add,
+.reveal-modal.ng-hide-remove{
+  display: block !important;
+}
+
+.reveal-modal.ng-hide{
+  -webkit-transform: scale(0.9);
+  opacity: 0;
+}
+
+.demo .button{
+  margin: 60px auto 0;
+}
+
+.demo .button, .demo .button:focus{
+  outline: none;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+
+.reveal-modal.fade {
+  -webkit-transition: -webkit-transform .3s ease-out;
+     -moz-transition:    -moz-transform .3s ease-out;
+       -o-transition:      -o-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+}
+.reveal-modal.in {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.reveal-modal-bg.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.reveal-modal-bg.in {
+  filter: alpha(opacity=50);
+  opacity: .5;
 }
