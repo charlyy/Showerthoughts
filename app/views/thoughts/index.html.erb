@@ -14,7 +14,7 @@
       
 
       <div ng-repeat="t in thoughts | filter:searchThought">
-            <div class="thoughts_content">*{{t.thought_content}}
+            <div class="thoughts_content"><p ng-bind="t.thought_content"></p>
               <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
             </div>
       </div>
