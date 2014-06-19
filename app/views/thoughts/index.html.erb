@@ -3,27 +3,23 @@
       <h1>Thoughts</h1>
     </div>
   <div ng-controller="ThoughtCtrl">
-     
-  
-
-    <div class="thoughts_container">  
+       
+    <div class="thoughts_container large-4 large-offset-3 columns right">  
         <div class="form-group">
-        <input ng-model="searchThought" type="text" class="form-control">
-      </div>
+          <input ng-model="searchThought" type="text" class="form-control">
+        </div>
       <div ng-repeat="t in thoughts | filter:searchThought">
             <div class="thoughts_content">*{{t.thought_content}}<a ng-click="deleteThought(t);" class="button tiny radius round">X</a></div>
                 
       </div>
 
      <script type="text/ng-template" id="myModalContent.html">
-        <h3>"I'm a modal!"</h3>
+        <h3>Add new thought</h3>
         <ul>
           <li ng-repeat="item in items">
             <a ng-click="selected.item = item">{{ item }}</a>
           </li>
         </ul>
-        <p>Selected: <b>{{ selected.item }}</b></p>
-        <button class="button" ng-click="ok()">OK</button>
       <div>
         <form ng-submit="saveThought();" class="form-group">
         
@@ -32,7 +28,7 @@
           <input type="submit" value="Add New Thought!" class="button small">
         </form>
       </div>
-        <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+        <a class="close-reveal-modal class" ng-click="cancel()">&#215;</a>
       </script>
 
       <button class="button" ng-click="open()">Open me!</button>

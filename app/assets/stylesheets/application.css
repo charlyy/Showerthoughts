@@ -44,10 +44,7 @@
 
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
-	width: 800px; 
-	margin: 0 auto;
   color: white;
-  height: 500px;
   overflow: scroll;
   float:right;
   margin-right:20px;
@@ -56,6 +53,8 @@
 	border:2px solid black;
 	height: 200px;
 	width: 200px;
+  margin: 2px;
+  display: inline-block;
 }
 
 .add_thought_container {
