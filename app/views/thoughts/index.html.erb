@@ -1,22 +1,24 @@
 <div ng-app="thought-app" class="container">
-    <div class="thoughts_header mask info"> 
+    <div class="thoughts_header"> 
       <h1>Thoughts</h1>
     </div>
   <div ng-controller="ThoughtCtrl">
        
     <div class="thoughts_container large-6 large-offset-3 columns right">  
         <div class="form-group">
-          <input ng-model="searchThought" type="text" class="form-control">
+          <input ng-model="searchThought" type="text" class="form-control" placeholder="Search Thought">
         </div>
 
         <button class="button tiny" ng-click="open()">Share your thought!</button>
         <hr>
+      
+
       <div ng-repeat="t in thoughts | filter:searchThought">
             <div class="thoughts_content">*{{t.thought_content}}
               <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
             </div>
       </div>
-
+  </div>
      <script type="text/ng-template" id="myModalContent.html">
         <h3>Add new thought</h3>
   

@@ -17,33 +17,44 @@
  .thoughts_header {
  	text-align: center;
  	background-color: rgba(9,9,9,0.8);
-	width: 240px;
+	width: 230px;
 	margin: 0 auto;
 	border-radius: 10px;
 	padding: 5px 20px;
+  -webkit-transition: border-radius 15s;
+  -webkit-transition: width 1.7s;
 }
 
 .thoughts_header:hover {
-	background-color: rgba(9,9,9,0.6);
-	width: 250px;
-	border-radius: 20px;
-	transition: transform 4.1s ease-in;
+	background-color: rgba(9,9,9,0.72);
+	width: 200px;
+  border-radius: 20px;
+	 -webkit-transition: border-radius 10s;
+   -webkit-transition: width 1.7s;
 }
 
 .thoughts_header h1 {
+  padding-top: 10px;
 	color: white;
+  font-family: 'Bad Script', cursive;
 }
 
 .form-group {
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 20px;
-
 }
+
 
 .thoughts_container div{
   float: left;
 }
+
+.search_header {
+  font-size: 16px;
+  color: lightgray;
+}
+
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
   color: white;
@@ -57,6 +68,7 @@
 	width: 200px;
   margin: 2px;
   display: inline-block;
+  font-family: 'Bad Script', cursive;
 }
 
 .add_thought_container {
@@ -64,8 +76,6 @@
 	width: 500px;
 	border: 1px solid black;
 }
-
-
 
 .reveal-modal{
   min-height: 300px;
@@ -118,10 +128,6 @@
 .demo .button, .demo .button:focus{
   outline: none;
 }
-
-
-
-
 
 .fade {
   opacity: 0;
