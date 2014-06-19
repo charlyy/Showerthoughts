@@ -38,9 +38,7 @@
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 20px;
-
 }
-
 
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
@@ -62,4 +60,10 @@
 	height: 400px;
 	width: 500px;
 	border: 1px solid black;
+}
+
+.search_header {
+	text-align: center;
+	font-size: 1.2em;
+	color: white;
 }
