@@ -72,6 +72,7 @@
   display: inline-block;
   font-family: Helvetica;
   font-size: 1.2em;
+  background: rgba(89,89,89,0.73);
 }
 
 .add_thought_container {
