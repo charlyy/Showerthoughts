@@ -1,26 +1,20 @@
 <div ng-app="thought-app" class="container">
-    <div class="thoughts_header"> 
+  <div class="thoughts_header"> 
       <h1>Thoughts</h1>
     </div>
-  <div ng-controller="ThoughtCtrl">
-       
-    <div class="thoughts_container large-4 large-offset-3 columns right">  
+    <div ng-controller="ThoughtCtrl">   
+      <div class="thoughts_container large-4 large-offset-3 columns right">  
         <div class="form-group">
-        <label class="search_header">Search Thoughts</label>
         <input ng-model="searchThought" type="text" class="form-control">
       </div>
       <div ng-repeat="t in thoughts | filter:searchThought">
-            <div class="thoughts_content">*{{t.thought_content}}<a ng-click="deleteThought(t);" class="button tiny radius round">X</a></div>
-                
+            <div class="thoughts_content">*{{t.thought_content}}
+            <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
+            </div>
       </div>
 
      <script type="text/ng-template" id="myModalContent.html">
         <h3>Add new thought</h3>
-        <ul>
-          <li ng-repeat="item in items">
-            <a ng-click="selected.item = item">{{ item }}</a>
-          </li>
-        </ul>
       <div>
         <form ng-submit="saveThought();" class="form-group">
         
@@ -32,9 +26,8 @@
         <a class="close-reveal-modal class" ng-click="cancel()">&#215;</a>
       </script>
 
-      <button class="button" ng-click="open()">Open me!</button>
- 
       
 
+    </div>
   </div>
 </div>
