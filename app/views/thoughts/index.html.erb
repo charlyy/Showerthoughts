@@ -6,16 +6,16 @@
        
     <div class="thoughts_container large-6 large-offset-3 columns right">  
         <div class="form-group">
-          <input ng-model="searchThought" type="text" class="form-control" placeholder="Search Thought">
+          <input ng-model="searchThought" type="text" class="form-control" placeholder="Search Thoughts">
         </div>
-
-        <button class="button tiny" ng-click="open()">Share your thought!</button>
+        <div class="share_thought">
+          <button class="button tiny " ng-click="open()">Share A Thought!</button>
+        </div>
         <hr>
       
 
       <div ng-repeat="t in thoughts | filter:searchThought">
             <div class="thoughts_content"><p ng-bind="t.thought_content"></p>
-              <a ng-click="deleteThought(t);" class="button tiny radius round">X</a>
             </div>
       </div>
   </div>
