@@ -69,7 +69,7 @@ thoughtApp.controller('ThoughtInstanceCtrl', ['$scope', 'Thought', '$modalInstan
       $scope.saveThought = function() {
           $scope.newThought.$save(function(thought) {
             console.log("bleepbloopblap");
-            $rootScope.thoughts.push(thought);
+            $rootScope.thoughts.unshift(thought);
             console.log("thought was saved");
             $scope.newThought = new Thought();
             $scope.cancel();

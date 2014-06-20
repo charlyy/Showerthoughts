@@ -56,10 +56,12 @@
 .thoughts_container {
 	background-color:rgba(89,89,89,0.63); 
   color: white;
-  overflow: scroll;
+  overflow-x:hidden;
+  overflow-y:scroll;
   float:right;
   margin-right: 20px;
   margin-top: 40px;
+  max-height: 700px;
 }
 
 .share_thought {
@@ -72,11 +74,10 @@ textarea {
 .thoughts_content {
   border: 2px solid black;
   border-radius: 20px;
-	height: auto;
+  overflow: hidden;
 	width: 250px;
   margin: 5px 5px 5px 5px;
   padding: 5px 10px;
-  overflow: scroll;
   display: inline-block;
   font-family: Helvetica;
   font-size: 1.2em;
